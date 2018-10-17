@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tk.walkingthisway.www.wtw_navi"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--To allow starting foreground services on Android P+ -->
+    <!--https://developer.android.com/preview/behavior-changes#fg-svc -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.here.android.maps.appid"
+            android:value="jrsSMc3zcZoStb8N3lgR" />
+        <meta-data
+            android:name="com.here.android.maps.apptoken"
+            android:value="tiJlvRiaF3mGLxPxv3lwpg" />
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="iDlkzxAqnqSdVbegAhA6xpxURRP1jmNF4hR4bqAo9STbXjNBctvjvJas1N/I6kzo3WkIZ482IIwDGerbuKDqGJWqE6bAnZTthDRFJHyLiViIzKZOMLxynf4szbtapjBBfyBnuE2wQKtKWCUFeev+VFbI3m6F5BGwWMqOemT4M4QXpK4pbCaZVEKK+HGWPfqjr6CWSWi/nXj0sv9kwIfcLQKzIjUhUEYefwnsvxXNM0sZG3mawy09vlTGbOGX4L7472S1nFQGCbzDoWJvXYOrMVGunybkI9tJMU8DnPfq3mhhHWuhKwXl/3rY84PqNoB/nLqeAHbtxtC+EtBNXObKES8AHRUnNSuNW6vj857fTU7ouaWNvldWR8PD2/w6ZkqGT+uWZ3Gkn88zzfW51ymMXFColwu8B4ihfQENiMrjwlhhPmjoB4N6UXRFrB2Hs1WP8QvPgHV2P8Cpb3hf3ULQtCsWwfejmkZuXyKmc/GlMjjNubBOWnmBl972G5aCM+Wdy2nJ9/om+bCL+5ayJnwF3vLfwxRr2m5FkAJ2Xzy4fKCD1t/a3Dft87wEoay833U8f5i7LzZTGnO+RGoEFZihE6pHR7v3EEH5p/n0k17Wc0aVLsg8fcnFJeXNKKERl48QiHy1sRxHR/7coC/nFCWHRlWFHl5j+aG70JLDHPolsHY=" />
+
+        <!--Developers should always provide custom values for each of {YOUR_LABEL_NAME} and {YOUR_INTENT_NAME}.
+         Do not reuse HERE SDK defaults.-->
+        <meta-data
+            android:name="INTENT_NAME"
+            android:value="wtw_navi_test" />
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:label="wtw_navi_test_lable"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="wtw_navi_test"></action>
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
